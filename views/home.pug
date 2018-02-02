@@ -1,22 +1,19 @@
 extends layout
 
 block content
-  div(id="viewport")
-    h2(class="title") PAWS: Cat City
+  h2(class="title") PAWS: Cat City
 
-    ul(class="stack")
-      each cat in cats
-        li
-          div(class="card")
-            div(id=cat.catId)
-              each url in cat.imageUrls
-                div
-                  img(class="card-img-top" src="http://"+url alt="Card image cap") 
-            div(class="card-body") 
-              h4(class="card-title")=cat.name
-              h5(class="card-detail")=cat.age
-              p(class="card-text")=cat.description
-            div
-          div
+  each cat in cats
+    div(class="card")
+      div(id=cat.catId)
+        each url in cat.imageUrls
+          div(class="card-img-container")
+            img(class="card-img-top" src="http://"+url alt="Card image cap") 
+      div(class="card-body") 
+        h4(class="card-title")=cat.name
+        h5(class="card-detail")=cat.age
+        p(class="card-text")=cat.description
+      div
+    div
 
   input(id="catIds" type="hidden" value=ids name="catIds")
