@@ -1,19 +1,22 @@
 extends layout
 
 block content
-  h2(class="title") PAWS: Cat City
+  h2(class="title")=title
 
   each cat in cats
     div(class="card")
+      h3(class="card-title")=cat.name
       div(id=cat.catId)
         each url in cat.imageUrls
           div(class="card-img-container")
             img(class="card-img-top" src="http://"+url alt="Card image cap") 
       div(class="card-body") 
-        h4(class="card-title")=cat.name
         h5(class="card-detail")=cat.age
         p(class="card-text")=cat.description
       div
     div
+    hr
+
+  p(class="dev") Hi Devon!
 
   input(id="catIds" type="hidden" value=ids name="catIds")

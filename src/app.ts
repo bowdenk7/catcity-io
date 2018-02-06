@@ -58,5 +58,7 @@ app.use(express.static(path.join(__dirname, "public"), { maxAge: 31557600000 }))
  * Primary app routes.
  */
 app.get("/", homeController.index);
+app.get("/all", homeController.all);
+app.get("/adopted", homeController.adopted);
 
 module.exports = app;

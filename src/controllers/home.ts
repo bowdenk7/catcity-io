@@ -7,7 +7,7 @@ import * as mongoose from "mongoose";
  */
 export let index = async (req: Request, res: Response) => {
 
-  const results: any = await CatModel.find({ location: "Cat City" });
+  const results: any = await CatModel.find({ location: "Cat City", stage: "Available" });
 
   const ids: string[] = [];
   for (const result of results) {
@@ -15,7 +15,39 @@ export let index = async (req: Request, res: Response) => {
   }
 
   res.render("home", {
-    title: "Home",
+    title: "Cat City",
+    cats: results,
+    ids: ids
+  });
+};
+
+export let all = async (req: Request, res: Response) => {
+
+  const results: any = await CatModel.find({ stage: "Available" });
+
+  const ids: string[] = [];
+  for (const result of results) {
+    ids.push(result.catId);
+  }
+
+  res.render("home", {
+    title: "All PAWS",
+    cats: results,
+    ids: ids
+  });
+};
+
+export let adopted = async (req: Request, res: Response) => {
+
+  const results: any = await CatModel.find({ stage: "Adopted" });
+
+  const ids: string[] = [];
+  for (const result of results) {
+    ids.push(result.catId);
+  }
+
+  res.render("home", {
+    title: "Already Adopted!",
     cats: results,
     ids: ids
   });

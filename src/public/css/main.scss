@@ -24,24 +24,30 @@ html, body {
     margin-bottom: 5px;
 }
 
+.card-title {
+    text-align: center;
+}
+
 .card {
     width: 365px;
     padding-bottom: 30px;
+    margin: 0px auto;
 }
 
 .card-img-container {
-    height: 500px;
+    max-height: 700px;
 }
 img {
     max-height: 100%;
     width: 365px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-
 }
 
 
 ul {
     padding: 0px;
+}
+
+.dev {
+    text-align: center;
+    font-size: 8px;
 }
