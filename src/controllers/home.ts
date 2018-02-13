@@ -22,7 +22,6 @@ export let index = async (req: Request, res: Response) => {
 };
 
 export let all = async (req: Request, res: Response) => {
-
   const results: any = await CatModel.find({ stage: "Available" });
 
   const ids: string[] = [];
